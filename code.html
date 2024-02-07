@@ -1,0 +1,1454 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Source code &#8212; SuPyMode 1.1.6
+ documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.11.7/x64/lib/python3.11/site-packages/docs/source/_static/default.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="_static/default.css?v=265c6c44" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script src="_static/documentation_options.js?v=6b1364b4"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'code';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="gallery/index.html" />
+    <link rel="prev" title="Theoretical background" href="theory.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+   
+
+<a class="navbar-brand logo" href="https://supymodes.readthedocs.io/en/latest/">
+  
+  
+  
+  
+  
+    <p class="title logo__title">SuPyMode</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="theory.html">
+                        Theoretical background
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Source code
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="gallery/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="references.html">
+                        References
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/MartinPdeS/SuPyMode" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/supymode/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-solid fa-box fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="theory.html">
+                        Theoretical background
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Source code
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="gallery/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="references.html">
+                        References
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/MartinPdeS/SuPyMode" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/supymode/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-solid fa-box fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Source code</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="source-code">
+<span id="code"></span><h1>Source code<a class="headerlink" href="#source-code" title="Link to this heading">#</a></h1>
+<section id="supysolver">
+<h2>SuPySolver<a class="headerlink" href="#supysolver" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><dl class="py class">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SuPyMode.solver.</span></span><span class="sig-name descname"><span class="pre">SuPySolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Geometry</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accuracy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extrapolation_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinate_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CoordinateSystem</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.solver.SuPySolver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This solver class directly links to a c++ Eigensolver.
+It solves the eigenvalues problems for a given geometry and return a collection of SuperModes.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.geometry">
+<span class="sig-name descname"><span class="pre">geometry</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Geometry</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#SuPyMode.solver.SuPySolver.geometry" title="Link to this definition">#</a></dt>
+<dd><p>Refractive index geometry of the optical structure</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.tolerance">
+<span class="sig-name descname"><span class="pre">tolerance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1e-08</span></em><a class="headerlink" href="#SuPyMode.solver.SuPySolver.tolerance" title="Link to this definition">#</a></dt>
+<dd><p>Absolute tolerance on the propagation constant computation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.max_iter">
+<span class="sig-name descname"><span class="pre">max_iter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10000</span></em><a class="headerlink" href="#SuPyMode.solver.SuPySolver.max_iter" title="Link to this definition">#</a></dt>
+<dd><p>Maximum iteration for the c++ Eigensolver</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.accuracy">
+<span class="sig-name descname"><span class="pre">accuracy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#SuPyMode.solver.SuPySolver.accuracy" title="Link to this definition">#</a></dt>
+<dd><p>Accuracy of the finit difference methode</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.extrapolation_order">
+<span class="sig-name descname"><span class="pre">extrapolation_order</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#SuPyMode.solver.SuPySolver.extrapolation_order" title="Link to this definition">#</a></dt>
+<dd><p>Order of the taylor serie to extrapolate next eigenvalues .</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.debug_mode">
+<span class="sig-name descname"><span class="pre">debug_mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#SuPyMode.solver.SuPySolver.debug_mode" title="Link to this definition">#</a></dt>
+<dd><p>Level of debug outprint from the c++ binding [0, 1, 2]</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.coordinate_system">
+<span class="sig-name descname"><span class="pre">coordinate_system</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CoordinateSystem</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#SuPyMode.solver.SuPySolver.coordinate_system" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.get_n2_rho_gradient">
+<span class="sig-name descname"><span class="pre">get_n2_rho_gradient</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#SuPyMode.solver.SuPySolver.get_n2_rho_gradient" title="Link to this definition">#</a></dt>
+<dd><p>Returns the n squared radial gradient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The n 2 rho gradient.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.initialize_binding">
+<span class="sig-name descname"><span class="pre">initialize_binding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sorted_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Boundaries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_added_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">CppSolver</span></span></span><a class="headerlink" href="#SuPyMode.solver.SuPySolver.initialize_binding" title="Link to this definition">#</a></dt>
+<dd><p>Initializes the c++ binding of the class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wavelength</strong> (<em>float</em>) – Wavelenght for the mode computation</p></li>
+<li><p><strong>n_sorted_mode</strong> (<em>int</em>) – Number of mode that are outputed by the c++ solver.</p></li>
+<li><p><strong>n_added_mode</strong> (<em>int</em>) – Number of additional modes that are computed for that will be sorted out, the higher the value the less likely mode mismatch will occur.</p></li>
+<li><p><strong>boundaries</strong> (<em>Boundaries</em>) – Symmetries of the finit-difference system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The cpp solver.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CppSolver</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.init_superset">
+<span class="sig-name descname"><span class="pre">init_superset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itr_initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itr_final</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SuPyMode.solver.SuPySolver.init_superset" title="Link to this definition">#</a></dt>
+<dd><p>Initialize superset instance which contains the computed superodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wavelength</strong> (<em>float</em>) – Wavelenght for the mode computation</p></li>
+<li><p><strong>n_step</strong> (<em>int</em>) – Number of stop to iterate through the ITR (inverse taper ration) section.</p></li>
+<li><p><strong>itr_initial</strong> (<em>float</em>) – Initial value of ITR.</p></li>
+<li><p><strong>itr_final</strong> (<em>float</em>) – Final value of ITR.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>No returns</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.index_to_eigen_value">
+<span class="sig-name descname"><span class="pre">index_to_eigen_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#SuPyMode.solver.SuPySolver.index_to_eigen_value" title="Link to this definition">#</a></dt>
+<dd><p>Converts an effective index to the equivalent eigen value of the
+linear system to be solved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eigen_value</strong> (<em>float</em>) – The eigen value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The equivalent eigen value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.eigen_value_to_index">
+<span class="sig-name descname"><span class="pre">eigen_value_to_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eigen_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#SuPyMode.solver.SuPySolver.eigen_value_to_index" title="Link to this definition">#</a></dt>
+<dd><p>Converts an eigen value of the linear equation to solve to
+its equivalent effective index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eigen_value</strong> (<em>float</em>) – The eigen value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The equivalent eigen value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.get_supermode_labels">
+<span class="sig-name descname"><span class="pre">get_supermode_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_modes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Boundaries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#SuPyMode.solver.SuPySolver.get_supermode_labels" title="Link to this definition">#</a></dt>
+<dd><p>Generate and returns the supermode label depending if auto_label
+is activated or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_modes</strong> (<em>int</em>) – The n modes</p></li>
+<li><p><strong>boundaries</strong> (<em>Boundaries</em>) – The boundaries</p></li>
+<li><p><strong>auto_label</strong> (<em>bool</em>) – The automatic label option</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The supermode labels.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.solver.SuPySolver.add_modes">
+<span class="sig-name descname"><span class="pre">add_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sorted_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Boundaries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_added_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_guess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SuPyMode.solver.SuPySolver.add_modes" title="Link to this definition">#</a></dt>
+<dd><p>This methodes compute new set of n_added_mode modes for a given boundaries condition.
+It appends those modes to the one already computed.
+The auto_labeling options works only for almost cylindrical symmetric structure with low itr.
+If wrong label is settle it can be modified with the label_supermode method. Index guess is the effective index
+guess given to the inverse shift power method solver to retrieve the modes with close effective index.
+Adds modes to the superset instance. SuperSet is accessible through .get_set().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_sorted_mode</strong> (<em>int</em>) – Number of mode that are outputed by the c++ solver.</p></li>
+<li><p><strong>boundaries</strong> (<em>Boundaries</em>) – Boundaries of the finit-difference system.</p></li>
+<li><p><strong>n_added_mode</strong> (<em>int</em>) – Number of additional modes that are computed for that will be sorted out, the higher the value the less likely mode mismatch will occur.</p></li>
+<li><p><strong>index_guess</strong> (<em>float</em>) – Initial effective index guess (if 0, auto evaluated).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>No returns</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="superset">
+<h2>SuperSet<a class="headerlink" href="#superset" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><dl class="py class">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SuPyMode.superset.</span></span><span class="sig-name descname"><span class="pre">SuperSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_solver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.superset.SuperSet" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Solver to which is associated the computed SuperSet Modes.
+This class is a representation of the fiber optic structures set of supermodes, hence the name.
+The items of this class are the supermodes generated from within the SuPySolver.
+It doesn’t link to any c++ binding, it is pure Python.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.parent_solver">
+<span class="sig-name descname"><span class="pre">parent_solver</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">object</span></em><a class="headerlink" href="#SuPyMode.superset.SuperSet.parent_solver" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.wavelength">
+<span class="sig-name descname"><span class="pre">wavelength</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#SuPyMode.superset.SuperSet.wavelength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.geometry">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">geometry</span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.geometry" title="Link to this definition">#</a></dt>
+<dd><p>Return geometry of the coupler structure</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.itr_list">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">itr_list</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#SuPyMode.superset.SuperSet.itr_list" title="Link to this definition">#</a></dt>
+<dd><p>Return list of itr value that are used to compute the supermodes</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.coordinate_system">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coordinate_system</span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.coordinate_system" title="Link to this definition">#</a></dt>
+<dd><p>Return axes object of the geometry</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.fundamental_supermodes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fundamental_supermodes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><span class="pre">SuperMode</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#SuPyMode.superset.SuperSet.fundamental_supermodes" title="Link to this definition">#</a></dt>
+<dd><p>Returns a list of the fundamental supermodes.
+Those supermodes are defined as the highest beta-value supermodes associated
+with a particular fiber</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The fundamental supermodes</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode">SuperMode</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.non_fundamental_supermodes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_fundamental_supermodes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><span class="pre">SuperMode</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#SuPyMode.superset.SuperSet.non_fundamental_supermodes" title="Link to this definition">#</a></dt>
+<dd><p>Returns a list of the non-fundamental supermodes.
+The fundamental supermodes are defined as the highest beta-value supermodes associated
+with a particular fiber</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The non-fundamental supermodes</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode">SuperMode</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.transmission_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transmission_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#SuPyMode.superset.SuperSet.transmission_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Return supermode transfert matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.itr_to_slice">
+<span class="sig-name descname"><span class="pre">itr_to_slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">itr_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.itr_to_slice" title="Link to this definition">#</a></dt>
+<dd><p>Return slice number associated to itr value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>itr_list</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – Inverse taper ration value to evaluate the slice.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of itr values,</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.get_fundamental_supermodes">
+<span class="sig-name descname"><span class="pre">get_fundamental_supermodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><span class="pre">SuperMode</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.get_fundamental_supermodes" title="Link to this definition">#</a></dt>
+<dd><p>Returns list of modes that do not spatially overlap and that have the highest
+propagation constant values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tolerance</strong> (<em>float</em>) – The tolerance to which consider the spatial overlap</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of the fundamental modes.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.get_non_fundamental_supermodes">
+<span class="sig-name descname"><span class="pre">get_non_fundamental_supermodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><span class="pre">SuperMode</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.get_non_fundamental_supermodes" title="Link to this definition">#</a></dt>
+<dd><p>Returns list of modes that do not spatially don’t overlap with the fundamental modes.
+Those mode are usually related to higher-order or cladding supermodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tolerance</strong> (<em>float</em>) – The tolerance to which consider the spatial overlap</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of the non-fundamental modes.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.get_mode_solver_classification">
+<span class="sig-name descname"><span class="pre">get_mode_solver_classification</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><span class="pre">SuperMode</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.get_mode_solver_classification" title="Link to this definition">#</a></dt>
+<dd><p>Returns a list containing the modes ordered per solver number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The mode solver classification.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[list[<a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode">SuperMode</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.label_supermodes">
+<span class="sig-name descname"><span class="pre">label_supermodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">label_list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.label_supermodes" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.reset_labels">
+<span class="sig-name descname"><span class="pre">reset_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.reset_labels" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.swap_supermode_order">
+<span class="sig-name descname"><span class="pre">swap_supermode_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#SuPyMode.superset.SuperSet" title="SuPyMode.superset.SuperSet"><span class="pre">SuperSet</span></a></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.swap_supermode_order" title="Link to this definition">#</a></dt>
+<dd><p>Swap two supermodes.
+it doesn’t change any of their characteristic, it only changes the
+order on whihc they will appear, notably for the plots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>idx0</strong> (<em>int</em>) – Index of the first mode to swap</p></li>
+<li><p><strong>idx1</strong> (<em>int</em>) – Index of the second mode to swap</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.compute_transmission_matrix">
+<span class="sig-name descname"><span class="pre">compute_transmission_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.compute_transmission_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the transmission matrix with only the propagation constant included.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The transmission matrix.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.add_coupling_to_t_matrix">
+<span class="sig-name descname"><span class="pre">add_coupling_to_t_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adiabatic_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.add_coupling_to_t_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Add the coupling coefficients to the transmission matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t_matrix</strong> (<em>numpy.ndarray</em>) – The t matrix to which add the coupling values</p></li>
+<li><p><strong>adiabatic_factor</strong> (<em>numpy.ndarray</em>) – The adiabatic factor, if None, it is set to one meaning normalized coupling [z-independent]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The transmission matrix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.compute_coupling_factor">
+<span class="sig-name descname"><span class="pre">compute_coupling_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coupler_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.compute_coupling_factor" title="Link to this definition">#</a></dt>
+<dd><p>Compute the coupling factor defined as:</p>
+<div class="math notranslate nohighlight">
+\[f_c = \frac{1}{\rho} \frac{d \rho}{d z}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coupler_length</strong> (<em>float</em>) – The length of the coupler</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The amplitudes as a function of the distance in the coupler</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.get_transmision_matrix_from_profile">
+<span class="sig-name descname"><span class="pre">get_transmision_matrix_from_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AlphaProfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_coupling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.get_transmision_matrix_from_profile" title="Link to this definition">#</a></dt>
+<dd><p>Gets the transmision matrix from profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>profile</strong> (<em>object</em>) – The z-profile of the coupler</p></li>
+<li><p><strong>add_coupling</strong> (<em>bool</em>) – Add coupling to the transmission matrix</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.propagate">
+<span class="sig-name descname"><span class="pre">propagate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AlphaProfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_amplitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_coupling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'RK45'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.propagate" title="Link to this definition">#</a></dt>
+<dd><p>Returns the amplitudes value of the supermodes in the coupler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initial_amplitude</strong> (<em>list</em>) – The initial amplitude</p></li>
+<li><p><strong>profile</strong> (<em>object</em>) – The z-profile of the coupler</p></li>
+<li><p><strong>max_step</strong> (<em>float</em>) – The maximum stride to use in the solver</p></li>
+<li><p><strong>add_coupling</strong> (<em>bool</em>) – Add coupling to the transmission matrix</p></li>
+<li><p><strong>kwargs</strong> (<em>dictionary</em>) – The keywords arguments to be passed to the solver</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The amplitudes as a function of the distance in the coupler</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.interpret_initial_input">
+<span class="sig-name descname"><span class="pre">interpret_initial_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_amplitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.interpret_initial_input" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.plot_propagation">
+<span class="sig-name descname"><span class="pre">plot_propagation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AlphaProfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_coupling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'RK45'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_sampling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_energy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_amplitudes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.plot_propagation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.generate_propagation_gif">
+<span class="sig-name descname"><span class="pre">generate_propagation_gif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AlphaProfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coupling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'normalized'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'RK45'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_sampling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mutliplicative_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'new_figure.gif'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_azimuth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.generate_propagation_gif" title="Link to this definition">#</a></dt>
+<dd><p>Generates a gif video of the mode propagation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initial_amplitude</strong> (<em>list</em>) – The initial amplitude</p></li>
+<li><p><strong>coupler_length</strong> (<em>float</em>) – The length of the coupler</p></li>
+<li><p><strong>max_step</strong> (<em>float</em>) – The maximum stride to use in the solver</p></li>
+<li><p><strong>sub_sampling</strong> (<em>int</em>) – Propagation undersampling factor for the video production</p></li>
+<li><p><strong>kwargs</strong> (<em>dictionary</em>) – The keywords arguments</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.generate_propagation_gif_from_values">
+<span class="sig-name descname"><span class="pre">generate_propagation_gif_from_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitudes_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itr_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_sampling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mutliplicative_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_azimuth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'new_figure.gif'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colormap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'bwr'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.generate_propagation_gif_from_values" title="Link to this definition">#</a></dt>
+<dd><p>Generates a gif video of the mode propagation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initial_amplitude</strong> (<em>list</em>) – The initial amplitude</p></li>
+<li><p><strong>coupler_length</strong> (<em>float</em>) – The length of the coupler</p></li>
+<li><p><strong>max_step</strong> (<em>float</em>) – The maximum stride to use in the solver</p></li>
+<li><p><strong>sub_sampling</strong> (<em>int</em>) – Propagation undersampling factor for the video production</p></li>
+<li><p><strong>kwargs</strong> (<em>dictionary</em>) – The keywords arguments</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.sorting_modes_beta">
+<span class="sig-name descname"><span class="pre">sorting_modes_beta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.sorting_modes_beta" title="Link to this definition">#</a></dt>
+<dd><p>Re-order modes to sort them in descending value of propagation constant.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.sorting_modes">
+<span class="sig-name descname"><span class="pre">sorting_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sorting_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'beta'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.sorting_modes" title="Link to this definition">#</a></dt>
+<dd><p>Re-order modes according to a sorting method, either “beta” or “symmetry+beta”.
+The final mode selection will also be filter to keep only a certain number of modes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.sorting_modes_solver_beta">
+<span class="sig-name descname"><span class="pre">sorting_modes_solver_beta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><span class="pre">SuperMode</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.sorting_modes_solver_beta" title="Link to this definition">#</a></dt>
+<dd><p>Re-order modes to sort them in with two parameters:
+ascending cpp_solver number and descending value of propagation constant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of supermode in ordered beta</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode">SuperMode</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.single_plot">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">single_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.superset.SuperSet.single_plot" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.combination_plot">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">combination_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.superset.SuperSet.combination_plot" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.plot_index">
+<span class="sig-name descname"><span class="pre">plot_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_of_interest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.superset.SuperSet.plot_index" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.plot_beta">
+<span class="sig-name descname"><span class="pre">plot_beta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_of_interest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.superset.SuperSet.plot_beta" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.plot_eigen_value">
+<span class="sig-name descname"><span class="pre">plot_eigen_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_of_interest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.superset.SuperSet.plot_eigen_value" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.plot_normalized_coupling">
+<span class="sig-name descname"><span class="pre">plot_normalized_coupling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_of_interest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_selection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pairs'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.superset.SuperSet.plot_normalized_coupling" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.plot_beating_length">
+<span class="sig-name descname"><span class="pre">plot_beating_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_of_interest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_selection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pairs'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.superset.SuperSet.plot_beating_length" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.plot_adiabatic">
+<span class="sig-name descname"><span class="pre">plot_adiabatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_of_interest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_selection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pairs'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.superset.SuperSet.plot_adiabatic" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.is_compute_compatible">
+<span class="sig-name descname"><span class="pre">is_compute_compatible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pair_of_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.is_compute_compatible" title="Link to this definition">#</a></dt>
+<dd><p>Determines whether the specified pair of mode is compatible for computation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pair_of_mode</strong> (<em>tuple</em>) – The pair of mode</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the specified pair of mode is compute compatible, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.remove_duplicate_combination">
+<span class="sig-name descname"><span class="pre">remove_duplicate_combination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">supermodes_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><span class="pre">SuperMode</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.remove_duplicate_combination" title="Link to this definition">#</a></dt>
+<dd><p>Removes a duplicate combination in the mode combination list irrespectively of the order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>supermodes_list</strong> (<em>list</em>) – The supermodes list</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The reduced supermode list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.interpret_mode_selection">
+<span class="sig-name descname"><span class="pre">interpret_mode_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_of_interest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_selection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.interpret_mode_selection" title="Link to this definition">#</a></dt>
+<dd><p>Interpret user input for mode selection and return the combination of mode to consider.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode_of_interest</strong> (<em>list</em>) – The mode of interest</p></li>
+<li><p><strong>mode_selection</strong> (<em>str</em>) – The mode selection</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.plot_field">
+<span class="sig-name descname"><span class="pre">plot_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_of_interest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itr_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[0,</span> <span class="pre">-1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_mode_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_itr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_slice</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SceneList</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.plot_field" title="Link to this definition">#</a></dt>
+<dd><p>Plot each of the mode field for different itr value or slice number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>itr_list</strong> (<em>list</em>) – List of itr value to evaluate the mode field</p></li>
+<li><p><strong>slice_list</strong> (<em>list</em>) – List of integer reprenting the slice where the mode field is evaluated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The figure</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SceneMatrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SceneList</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.plot" title="Link to this definition">#</a></dt>
+<dd><p>Generic plot function.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>type: Plot type [‘index’, ‘beta’, ‘adiabatic’, ‘normalized-adiabatic’, ‘coupling’, ‘field’, ‘beating-length’]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.generate_pdf_report">
+<span class="sig-name descname"><span class="pre">generate_pdf_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'report'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itr_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_of_interest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_selection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'specific'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.generate_pdf_report" title="Link to this definition">#</a></dt>
+<dd><p>Generate a full report of the coupler properties as a .pdf file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – Name of the Report file to be outputed.</p></li>
+<li><p><strong>itr_list</strong> (<em>Array</em>) – List of itr value to evaluate the mode field.</p></li>
+<li><p><strong>slice_list</strong> (<em>Array</em>) – List of slice value to evaluate the mode field.</p></li>
+<li><p><strong>dpi</strong> (<em>int</em>) – Pixel density for the image included in the report.</p></li>
+<li><p><strong>mode_of_interest</strong> (<em>list</em>) – List of the mode that are to be considered in the adiabatic criterion plotting.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>No return</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.save_instance">
+<span class="sig-name descname"><span class="pre">save_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.save_instance" title="Link to this definition">#</a></dt>
+<dd><p>Saves the superset instance as a serialized pickle file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – The directory where to save the file, ‘auto’ options means the superset_instance folder</p></li>
+<li><p><strong>filename</strong> – The filename</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The path directory of the saved instance</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.superset.SuperSet.add_crossings_to_ax">
+<span class="sig-name descname"><span class="pre">add_crossings_to_ax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_of_interest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SuPyMode.superset.SuperSet.add_crossings_to_ax" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="supermode">
+<h2>SuperMode<a class="headerlink" href="#supermode" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><dl class="py class">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SuPyMode.supermode.</span></span><span class="sig-name descname"><span class="pre">SuperMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_set</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binded_supermode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.supermode.SuperMode" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">InheritFromSuperSet</span></code></p>
+<p>This class is a representation of the fiber optic structures SuperModes.
+Those mode belongs to a SuperSet class and are constructed with the SuPySolver.
+It links to c++ SuperMode class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.parent_set">
+<span class="sig-name descname"><span class="pre">parent_set</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.parent_set" title="Link to this definition">#</a></dt>
+<dd><p>SuperSet to which is associated the computed this mode</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.binded_supermode">
+<span class="sig-name descname"><span class="pre">binded_supermode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.binded_supermode" title="Link to this definition">#</a></dt>
+<dd><p>C++ binded sueprmode</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.solver_number">
+<span class="sig-name descname"><span class="pre">solver_number</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.solver_number" title="Link to this definition">#</a></dt>
+<dd><p>Number which bind this mode to a specific python solver</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.mode_number">
+<span class="sig-name descname"><span class="pre">mode_number</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.mode_number" title="Link to this definition">#</a></dt>
+<dd><p>Unique number associated to this mode in a particular symmetry set</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.boundaries">
+<span class="sig-name descname"><span class="pre">boundaries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.boundaries" title="Link to this definition">#</a></dt>
+<dd><p>Boundary conditions</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.label" title="Link to this definition">#</a></dt>
+<dd><p>Arbitrary label given to the mode</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.binding_number">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">binding_number</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.binding_number" title="Link to this definition">#</a></dt>
+<dd><p>Returns the mode number specific to one CppSolver</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.model_parameters">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ModelParameters</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.model_parameters" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.mesh_gradient">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mesh_gradient</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.mesh_gradient" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.amplitudes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amplitudes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.amplitudes" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.stylized_label">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stylized_label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.stylized_label" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.is_computation_compatible">
+<span class="sig-name descname"><span class="pre">is_computation_compatible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><span class="pre">SuperMode</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#SuPyMode.supermode.SuperMode.is_computation_compatible" title="Link to this definition">#</a></dt>
+<dd><p>Determines whether the specified other supermode is compatible
+for computation of the modal coupling and adiabatic criterion.
+It, basically return False only if the mode is the same or if the
+boundaries symmetries differ in some way.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><em>SuperMode</em></a>) – The other SuperMode to compare with</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the specified other is computation compatible, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.is_symmetry_compatible">
+<span class="sig-name descname"><span class="pre">is_symmetry_compatible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><span class="pre">SuperMode</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#SuPyMode.supermode.SuperMode.is_symmetry_compatible" title="Link to this definition">#</a></dt>
+<dd><p>Determines whether the specified other supermode has same symmetry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#SuPyMode.supermode.SuperMode" title="SuPyMode.supermode.SuperMode"><em>SuperMode</em></a>) – The other supermode</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the specified other is symmetry compatible, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.coordinate_system">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coordinate_system</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">object</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.coordinate_system" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.geometry">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">geometry</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">object</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.geometry" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.get_field_interpolation">
+<span class="sig-name descname"><span class="pre">get_field_interpolation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">itr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RectBivariateSpline</span></span></span><a class="headerlink" href="#SuPyMode.supermode.SuperMode.get_field_interpolation" title="Link to this definition">#</a></dt>
+<dd><p>Gets the mode field interpolation at a certain itr or slice number value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>itr</strong> (<em>float</em>) – The itr</p></li>
+<li><p><strong>slice_number</strong> (<em>int</em>) – The slice number</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The mode field interpolation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>RectBivariateSpline</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.itr_list">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">itr_list</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#SuPyMode.supermode.SuperMode.itr_list" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.get_axis">
+<span class="sig-name descname"><span class="pre">get_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slice_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_symmetries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#SuPyMode.supermode.SuperMode.get_axis" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SuPyMode.supermode.SuperMode.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SuPyMode.supermode.SuperMode.plot" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supysolver">SuPySolver</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver"><code class="docutils literal notranslate"><span class="pre">SuPySolver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.geometry"><code class="docutils literal notranslate"><span class="pre">SuPySolver.geometry</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.tolerance"><code class="docutils literal notranslate"><span class="pre">SuPySolver.tolerance</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.max_iter"><code class="docutils literal notranslate"><span class="pre">SuPySolver.max_iter</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.accuracy"><code class="docutils literal notranslate"><span class="pre">SuPySolver.accuracy</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.extrapolation_order"><code class="docutils literal notranslate"><span class="pre">SuPySolver.extrapolation_order</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.debug_mode"><code class="docutils literal notranslate"><span class="pre">SuPySolver.debug_mode</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.coordinate_system"><code class="docutils literal notranslate"><span class="pre">SuPySolver.coordinate_system</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.get_n2_rho_gradient"><code class="docutils literal notranslate"><span class="pre">SuPySolver.get_n2_rho_gradient()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.initialize_binding"><code class="docutils literal notranslate"><span class="pre">SuPySolver.initialize_binding()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.init_superset"><code class="docutils literal notranslate"><span class="pre">SuPySolver.init_superset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.index_to_eigen_value"><code class="docutils literal notranslate"><span class="pre">SuPySolver.index_to_eigen_value()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.eigen_value_to_index"><code class="docutils literal notranslate"><span class="pre">SuPySolver.eigen_value_to_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.get_supermode_labels"><code class="docutils literal notranslate"><span class="pre">SuPySolver.get_supermode_labels()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.solver.SuPySolver.add_modes"><code class="docutils literal notranslate"><span class="pre">SuPySolver.add_modes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#superset">SuperSet</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet"><code class="docutils literal notranslate"><span class="pre">SuperSet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.parent_solver"><code class="docutils literal notranslate"><span class="pre">SuperSet.parent_solver</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.wavelength"><code class="docutils literal notranslate"><span class="pre">SuperSet.wavelength</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.geometry"><code class="docutils literal notranslate"><span class="pre">SuperSet.geometry</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.itr_list"><code class="docutils literal notranslate"><span class="pre">SuperSet.itr_list</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.coordinate_system"><code class="docutils literal notranslate"><span class="pre">SuperSet.coordinate_system</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.fundamental_supermodes"><code class="docutils literal notranslate"><span class="pre">SuperSet.fundamental_supermodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.non_fundamental_supermodes"><code class="docutils literal notranslate"><span class="pre">SuperSet.non_fundamental_supermodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.transmission_matrix"><code class="docutils literal notranslate"><span class="pre">SuperSet.transmission_matrix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.itr_to_slice"><code class="docutils literal notranslate"><span class="pre">SuperSet.itr_to_slice()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.get_fundamental_supermodes"><code class="docutils literal notranslate"><span class="pre">SuperSet.get_fundamental_supermodes()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.get_non_fundamental_supermodes"><code class="docutils literal notranslate"><span class="pre">SuperSet.get_non_fundamental_supermodes()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.get_mode_solver_classification"><code class="docutils literal notranslate"><span class="pre">SuperSet.get_mode_solver_classification()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.label_supermodes"><code class="docutils literal notranslate"><span class="pre">SuperSet.label_supermodes()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.reset_labels"><code class="docutils literal notranslate"><span class="pre">SuperSet.reset_labels()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.swap_supermode_order"><code class="docutils literal notranslate"><span class="pre">SuperSet.swap_supermode_order()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.compute_transmission_matrix"><code class="docutils literal notranslate"><span class="pre">SuperSet.compute_transmission_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.add_coupling_to_t_matrix"><code class="docutils literal notranslate"><span class="pre">SuperSet.add_coupling_to_t_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.compute_coupling_factor"><code class="docutils literal notranslate"><span class="pre">SuperSet.compute_coupling_factor()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.get_transmision_matrix_from_profile"><code class="docutils literal notranslate"><span class="pre">SuperSet.get_transmision_matrix_from_profile()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.propagate"><code class="docutils literal notranslate"><span class="pre">SuperSet.propagate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.interpret_initial_input"><code class="docutils literal notranslate"><span class="pre">SuperSet.interpret_initial_input()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.plot_propagation"><code class="docutils literal notranslate"><span class="pre">SuperSet.plot_propagation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.generate_propagation_gif"><code class="docutils literal notranslate"><span class="pre">SuperSet.generate_propagation_gif()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.generate_propagation_gif_from_values"><code class="docutils literal notranslate"><span class="pre">SuperSet.generate_propagation_gif_from_values()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.sorting_modes_beta"><code class="docutils literal notranslate"><span class="pre">SuperSet.sorting_modes_beta()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.sorting_modes"><code class="docutils literal notranslate"><span class="pre">SuperSet.sorting_modes()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.sorting_modes_solver_beta"><code class="docutils literal notranslate"><span class="pre">SuperSet.sorting_modes_solver_beta()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.single_plot"><code class="docutils literal notranslate"><span class="pre">SuperSet.single_plot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.combination_plot"><code class="docutils literal notranslate"><span class="pre">SuperSet.combination_plot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.plot_index"><code class="docutils literal notranslate"><span class="pre">SuperSet.plot_index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.plot_beta"><code class="docutils literal notranslate"><span class="pre">SuperSet.plot_beta()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.plot_eigen_value"><code class="docutils literal notranslate"><span class="pre">SuperSet.plot_eigen_value()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.plot_normalized_coupling"><code class="docutils literal notranslate"><span class="pre">SuperSet.plot_normalized_coupling()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.plot_beating_length"><code class="docutils literal notranslate"><span class="pre">SuperSet.plot_beating_length()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.plot_adiabatic"><code class="docutils literal notranslate"><span class="pre">SuperSet.plot_adiabatic()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.is_compute_compatible"><code class="docutils literal notranslate"><span class="pre">SuperSet.is_compute_compatible()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.remove_duplicate_combination"><code class="docutils literal notranslate"><span class="pre">SuperSet.remove_duplicate_combination()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.interpret_mode_selection"><code class="docutils literal notranslate"><span class="pre">SuperSet.interpret_mode_selection()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.plot_field"><code class="docutils literal notranslate"><span class="pre">SuperSet.plot_field()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.plot"><code class="docutils literal notranslate"><span class="pre">SuperSet.plot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.generate_pdf_report"><code class="docutils literal notranslate"><span class="pre">SuperSet.generate_pdf_report()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.save_instance"><code class="docutils literal notranslate"><span class="pre">SuperSet.save_instance()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.superset.SuperSet.add_crossings_to_ax"><code class="docutils literal notranslate"><span class="pre">SuperSet.add_crossings_to_ax()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supermode">SuperMode</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode"><code class="docutils literal notranslate"><span class="pre">SuperMode</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.parent_set"><code class="docutils literal notranslate"><span class="pre">SuperMode.parent_set</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.binded_supermode"><code class="docutils literal notranslate"><span class="pre">SuperMode.binded_supermode</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.solver_number"><code class="docutils literal notranslate"><span class="pre">SuperMode.solver_number</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.mode_number"><code class="docutils literal notranslate"><span class="pre">SuperMode.mode_number</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.boundaries"><code class="docutils literal notranslate"><span class="pre">SuperMode.boundaries</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.label"><code class="docutils literal notranslate"><span class="pre">SuperMode.label</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.binding_number"><code class="docutils literal notranslate"><span class="pre">SuperMode.binding_number</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.model_parameters"><code class="docutils literal notranslate"><span class="pre">SuperMode.model_parameters</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.mesh_gradient"><code class="docutils literal notranslate"><span class="pre">SuperMode.mesh_gradient</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.amplitudes"><code class="docutils literal notranslate"><span class="pre">SuperMode.amplitudes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.stylized_label"><code class="docutils literal notranslate"><span class="pre">SuperMode.stylized_label</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.is_computation_compatible"><code class="docutils literal notranslate"><span class="pre">SuperMode.is_computation_compatible()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.is_symmetry_compatible"><code class="docutils literal notranslate"><span class="pre">SuperMode.is_symmetry_compatible()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.coordinate_system"><code class="docutils literal notranslate"><span class="pre">SuperMode.coordinate_system</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.geometry"><code class="docutils literal notranslate"><span class="pre">SuperMode.geometry</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.get_field_interpolation"><code class="docutils literal notranslate"><span class="pre">SuperMode.get_field_interpolation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.itr_list"><code class="docutils literal notranslate"><span class="pre">SuperMode.itr_list</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.get_axis"><code class="docutils literal notranslate"><span class="pre">SuperMode.get_axis()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#SuPyMode.supermode.SuperMode.plot"><code class="docutils literal notranslate"><span class="pre">SuperMode.plot()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="_sources/code.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2021, Martin Poinsinet de Sivry-Houle.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
